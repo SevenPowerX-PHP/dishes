@@ -76,7 +76,8 @@
 				$posts = Yii::$app->request->post();
 
 				$ingredientToDish->dis_id = $model->dis_id;
-				foreach ($posts['IngredientToDish'] as $post) {
+
+				foreach ($posts['Ingredient'] as $post) {
 					if (is_array($post)) {
 						$ingredientToDish->setIsNewRecord(true);
 						$ingredientToDish->ingredient_id = $post['ingredient_id'];
@@ -110,19 +111,21 @@
 			$modelsIngredients = [new Ingredient()];
 			$ingredientToDish = new IngredientToDish();
 
-
-			if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			if ($model->load(Yii::$app->request->post())) {
 				$posts = Yii::$app->request->post();
 
 				$ingredientToDish->dis_id = $model->dis_id;
-				foreach ($posts['IngredientToDish'] as $post) {
+
+				foreach ($posts['Ingredient'] as $post) {
 					if (is_array($post)) {
 						$ingredientToDish->setIsNewRecord(true);
 						$ingredientToDish->ingredient_id = $post['ingredient_id'];
 						$ingredientToDish->save();
 					}
 				}
+			}
 
+			if ($model->load(Yii::$app->request->post()) && $model->save()) {
 				return $this->redirect(['view', 'id' => $model->dis_id]);
 			}
 

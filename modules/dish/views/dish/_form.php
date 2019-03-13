@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
 <div class="dish-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
 
     <?= $form->field($model, 'dish_name')->textInput(['maxlength' => true]) ?>
 
