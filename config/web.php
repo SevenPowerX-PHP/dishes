@@ -10,7 +10,16 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@modules'   => '@app/modules',
     ],
+	'modules' => [
+		'ingredient' => [
+			'class' => 'app\modules\ingredient\Ingredient',
+		],
+		'dish' => [
+			'class' => 'app\modules\dish\Dish',
+		],
+	],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

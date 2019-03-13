@@ -14,7 +14,9 @@ class m190312_181431_create_table_ingredient extends Migration
     {
 	    $this->createTable('ingredient', [
 		    'ingredient_id' => $this->primaryKey(11),
-		    'ingredient_name' => $this->string(64)->notNull()->unique()
+		    'ingredient_name' => $this->string(64)->notNull()->unique(),
+		    'status' => $this->tinyInteger()
+
 	    ]);
     }
 
