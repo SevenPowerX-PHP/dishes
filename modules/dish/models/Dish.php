@@ -3,6 +3,8 @@
 namespace app\modules\dish\models;
 
 use Yii;
+use app\modules\dish\models\IngredientToDish;
+use app\modules\dish\models\Ingredient;
 
 /**
  * This is the model class for table "dish".
@@ -30,9 +32,13 @@ class Dish extends \yii\db\ActiveRecord
     {
         return [
             [['dish_name'], 'required'],
-            [['dish_name'], 'string', 'max' => 64],
+            [['dish_name', 'ingredients'], 'string', 'max' => 64],
             [['dish_name'], 'unique'],
         ];
+    }
+
+    public function ingredients() {
+    	return 'test';
     }
 
     /**
@@ -41,8 +47,9 @@ class Dish extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'dis_id' => Yii::t('app', 'Dis ID'),
-            'dish_name' => Yii::t('app', 'Dish Name'),
+            'dis_id' => Yii::t('app', 'Блюдо ID'),
+            'dish_name' => Yii::t('app', 'Название Блюда'),
+            'ingredients' => Yii::t('app', 'Ингредиенты'),
         ];
     }
 

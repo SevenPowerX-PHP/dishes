@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\dish\models\Dish */
 
-$this->title = $model->dis_id;
+$this->title = $model->dish_name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dishes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,6 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'dis_id',
             'dish_name',
+	        [
+		        'label' => 'Ингридиенты',
+		        //'value' => 'ingredients.ingredient_id',
+		        'value' => function($model) {
+			        return implode(', ', \yii\helpers\ArrayHelper::map($model->ingredients, 'ingredient_id', 'ingredient_name'));
+		        }
+	        ],
         ],
     ]) ?>
 

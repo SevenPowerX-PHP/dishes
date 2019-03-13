@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model app\modules\dish\models\Dish */
 
 $this->title = Yii::t('app', 'Update Dish: {name}', [
-    'name' => $model->dis_id,
+    'name' => $model->dish_name,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dishes'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->dis_id, 'url' => ['view', 'id' => $model->dis_id]];
+$this->params['breadcrumbs'][] = ['label' => $model->dish_name, 'url' => ['view', 'id' => $model->dis_id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="dish-update">
@@ -18,6 +18,9 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
+	    'modelInredients' => $modelInredients,
+	    'modelsIngredients' => $modelsIngredients,
+	    'ingredientToDish' => $ingredientToDish
     ]) ?>
 
 </div>

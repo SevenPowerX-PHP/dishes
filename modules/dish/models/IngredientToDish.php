@@ -61,7 +61,7 @@ class IngredientToDish extends \yii\db\ActiveRecord
      */
     public function getIngredient()
     {
-        return $this->hasOne(Ingredient::className(), ['ingredient_id' => 'ingredient_id']);
+	        return $this->hasOne(Ingredient::className(), ['ingredient_id' => 'ingredient_id']);
     }
 
     /**
